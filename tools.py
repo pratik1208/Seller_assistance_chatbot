@@ -30,4 +30,12 @@ def get_prohibited_words(word: str) -> list:
     if words:
         return rf"{word} is prohibited."
 
-    return rf"{word} is not prohibited."
+    elif word in restricted_categories:
+        return rf"{word} is a restricted category."
+
+    elif word in protected_brands:
+        return rf"{word} is a protected brand."
+
+    return { "found": False, "word": word, "error": "No prohibitions found for this word" } 
+
+    
